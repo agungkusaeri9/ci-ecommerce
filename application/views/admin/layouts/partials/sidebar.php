@@ -33,7 +33,7 @@
 				</li>
 				<li class="nav-header">Master</li>
 				<li class="nav-item">
-					<a href="" class="nav-link">
+					<a href="<?= base_url('admin/payment') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-wallet"></i>
 						<p>
 							Metode Pembayaran
