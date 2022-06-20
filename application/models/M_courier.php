@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class M_payment extends CI_Model{
+class M_courier extends CI_Model{
 
-    public $table = 'payments';
+    public $table = 'couriers';
     public function get()
     {
         return $this->db->get($this->table);

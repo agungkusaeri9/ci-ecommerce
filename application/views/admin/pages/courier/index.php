@@ -4,8 +4,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h5>Data Pembayaran</h5>
-                        <a href="<?= base_url('admin/payment/create') ?>" class="btn btn-primary">Tambah Pembayaran</a>
+                        <h5>Data Kurir</h5>
+                        <a href="<?= base_url('admin/courier/create') ?>" class="btn btn-primary">Tambah Kurir</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -13,9 +13,8 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Pembayaran</th>
-                                <th>Nomor</th>
-                                <th>Keterangan</th>
+                                <th>Kode</th>
+                                <th>Nama</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -23,15 +22,14 @@
                             <?php
                                 $i = 1;
                             ?>
-                            <?php foreach($payments as $payment) : ?>
+                            <?php foreach($couriers as $courier) : ?>
                             <tr>
                                 <td style="width:10px;" class="text-center"><?= $i++ ?></td>
-                                <td><?= $payment->name ?></td>
-                                <td><?= $payment->number ?></td>
-                                <td><?= $payment->desc ?></td>
+                                <td><?= $courier->code ?></td>
+                                <td><?= $courier->name ?></td>
                                 <td>
-									<a href="<?= base_url('admin/payment/edit/') . $payment->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
-									<form action="<?= base_url('admin/payment/delete/') . $payment->id ?>" method="post" id="formDelete" class="d-inline">
+									<a href="<?= base_url('admin/courier/edit/') . $courier->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
+									<form action="<?= base_url('admin/courier/delete/') . $courier->id ?>" method="post" id="formDelete" class="d-inline">
 										<button class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
 									</form>
 								</td>

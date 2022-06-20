@@ -23,6 +23,8 @@
 <!-- summernote -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/summernote/summernote-bs4.min.css">
 <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="<?= base_url() ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- jQuery -->
 <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>

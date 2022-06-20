@@ -41,7 +41,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="" class="nav-link">
+					<a href="<?= base_url('admin/courier') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-truck"></i>
 						<p>
 							Kurir
@@ -57,7 +57,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="" class="nav-link">
+					<a href="<?= base_url('admin/message') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-envelope"></i>
 						<p>
 							Pesan Masuk

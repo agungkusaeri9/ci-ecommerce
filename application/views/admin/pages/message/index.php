@@ -4,8 +4,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h5>Data Pembayaran</h5>
-                        <a href="<?= base_url('admin/payment/create') ?>" class="btn btn-primary">Tambah Pembayaran</a>
+                        <h5>Data Pesan Masuk</h5>
                     </div>
                 </div>
                 <div class="card-body">
@@ -13,9 +12,10 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Pembayaran</th>
-                                <th>Nomor</th>
-                                <th>Keterangan</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Web</th>
+								<th>Pesan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -23,15 +23,15 @@
                             <?php
                                 $i = 1;
                             ?>
-                            <?php foreach($payments as $payment) : ?>
+                            <?php foreach($messages as $message) : ?>
                             <tr>
                                 <td style="width:10px;" class="text-center"><?= $i++ ?></td>
-                                <td><?= $payment->name ?></td>
-                                <td><?= $payment->number ?></td>
-                                <td><?= $payment->desc ?></td>
+                                <td><?= $message->name ?></td>
+                                <td><?= $message->email ?></td>
+                                <td><?= $message->web ?></td>
+								<td><?= $message->text ?></td>
                                 <td>
-									<a href="<?= base_url('admin/payment/edit/') . $payment->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
-									<form action="<?= base_url('admin/payment/delete/') . $payment->id ?>" method="post" id="formDelete" class="d-inline">
+									<form action="<?= base_url('admin/message/delete/') . $message->id ?>" method="post" id="formDelete" class="d-inline">
 										<button class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
 									</form>
 								</td>
@@ -71,4 +71,3 @@
 	})
 </script>
 <?php $this->load->view('admin/layouts/partials/alert'); ?>
-
