@@ -66,7 +66,7 @@
 				</li>
 				<li class="nav-header">Produk</li>
 				<li class="nav-item">
-					<a href="" class="nav-link">
+					<a href="<?= base_url('admin/category') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-tags"></i>
 						<p>
 							Kategori Produk
@@ -78,14 +78,6 @@
 						<i class="nav-icon fas fa-fw fa-database"></i>
 						<p>
 							Produk
-						</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="" class="nav-link">
-						<i class="nav-icon fas fa-fw fa-images"></i>
-						<p>
-							Gallery Produk
 						</p>
 					</a>
 				</li>
@@ -137,7 +129,7 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item mb-5">
 					<a href="<?= base_url('auth/logout') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-sign-out-alt"></i>
 						<p>

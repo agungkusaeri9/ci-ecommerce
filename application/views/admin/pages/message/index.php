@@ -31,8 +31,8 @@
                                 <td><?= $message->web ?></td>
 								<td><?= $message->text ?></td>
                                 <td>
-									<form action="<?= base_url('admin/message/delete/') . $message->id ?>" method="post" id="formDelete" class="d-inline">
-										<button class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
+									<form action="" method="post" id="formDelete" class="d-inline">
+										<button class="btn btn-sm btn-danger btnDelete" data-id="<?= $message->id ?>"><i class="fas fa-trash"></i> Hapus</button>
 									</form>
 								</td>
                             </tr>
@@ -52,6 +52,7 @@
 	$(function(){
 		$('.dtable').DataTable();
 		$('body').on('click','.btnDelete', function(e){
+            var id = $(this).data('id');
 			e.preventDefault();
 			Swal.fire({
 			title: 'Apakah anda yakin ingin menghapus data ini?',
@@ -63,7 +64,8 @@
 			confirmButtonText: 'Yes, delete it!'
 			}).then((result) => {
 			if (result.isConfirmed) {
-					$('#formDelete').submit();
+                $('#formDelete').attr('action','<?= base_url('admin/message/delete/') ?>' + id)
+				$('#formDelete').submit();
 				}
 			})
 		})

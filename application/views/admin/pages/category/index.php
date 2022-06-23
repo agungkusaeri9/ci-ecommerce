@@ -4,8 +4,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h5>Data Kurir</h5>
-                        <a href="<?= base_url('admin/courier/create') ?>" class="btn btn-primary">Tambah Kurir</a>
+                        <h5>Data Kategori</h5>
+                        <a href="<?= base_url('admin/category/create') ?>" class="btn btn-primary">Tambah Kategori</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -13,8 +13,8 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Kode</th>
                                 <th>Nama</th>
+                                <th>Icon</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -22,15 +22,15 @@
                             <?php
                                 $i = 1;
                             ?>
-                            <?php foreach($couriers as $courier) : ?>
+                            <?php foreach($categories as $category) : ?>
                             <tr>
                                 <td style="width:10px;" class="text-center"><?= $i++ ?></td>
-                                <td><?= $courier->code ?></td>
-                                <td><?= $courier->name ?></td>
+                                <td><?= $category->name ?></td>
+                                <td><?= $category->icon ?></td>
                                 <td>
-									<a href="<?= base_url('admin/courier/edit/') . $courier->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
+									<a href="<?= base_url('admin/category/edit/') . $category->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
 									<form action="" method="post" id="formDelete" class="d-inline">
-										<button class="btn btn-sm btn-danger btnDelete" data-id="<?= $courier->id ?>"><i class="fas fa-trash"></i> Hapus</button>
+										<button class="btn btn-sm btn-danger btnDelete" data-id="<?= $category->id ?>"><i class="fas fa-trash"></i> Hapus</button>
 									</form>
 								</td>
                             </tr>
@@ -62,7 +62,7 @@
 			confirmButtonText: 'Yes, delete it!'
 			}).then((result) => {
 			if (result.isConfirmed) {
-                $('#formDelete').attr('action','<?= base_url('admin/courier/delete/') ?>' + id)
+                $('#formDelete').attr('action','<?= base_url('admin/category/delete/') ?>' + id)
 				$('#formDelete').submit();
 				}
 			})
