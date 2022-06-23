@@ -4,8 +4,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h5>Data Pembayaran</h5>
-                        <a href="<?= base_url('admin/payment/create') ?>" class="btn btn-primary">Tambah Pembayaran</a>
+                        <h5>Data User</h5>
+                        <a href="<?= base_url('admin/user/create') ?>" class="btn btn-primary">Tambah User</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -13,9 +13,12 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Pembayaran</th>
-                                <th>Nomor</th>
-                                <th>Keterangan</th>
+                                <th>Nama</th>
+                                <th>Username</th>
+								<th>Email</th>
+								<th>Jenis Kelamin</th>
+								<th>No. Telepon</th>
+								<th>Role</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -23,16 +26,25 @@
                             <?php
                                 $i = 1;
                             ?>
-                            <?php foreach($payments as $payment) : ?>
+                            <?php foreach($users as $user) : ?>
                             <tr>
                                 <td style="width:10px;" class="text-center"><?= $i++ ?></td>
-                                <td><?= $payment->name ?></td>
-                                <td><?= $payment->number ?></td>
-                                <td><?= $payment->desc ?></td>
+                                <td><?= $user->name ?></td>
+                                <td><?= $user->username ?></td>
+								<td><?= $user->email ?></td>
+								<td><?= $user->gender ?></td>
+								<td><?= $user->phone_number ?></td>
+								<td>
+									<?php if($user->role_id == 1) : ?>
+									Admin
+									<?php else: ?>
+									User
+									<?php endif; ?>
+								</td>
                                 <td>
-									<a href="<?= base_url('admin/payment/edit/') . $payment->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
-									<form action="#" method="post" id="formDelete" class="d-inline">
-										<button class="btn btn-sm btn-danger btnDelete" data-id="<?= $payment->id ?>"><i class="fas fa-trash"></i> Hapus</button>
+									<a href="<?= base_url('admin/user/edit/') . $user->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
+									<form action="" method="post" id="formDelete" class="d-inline">
+										<button class="btn btn-sm btn-danger btnDelete" data-id="<?= $user->id ?>"><i class="fas fa-trash"></i> Hapus</button>
 									</form>
 								</td>
                             </tr>
@@ -64,7 +76,7 @@
 			confirmButtonText: 'Yes, delete it!'
 			}).then((result) => {
 			if (result.isConfirmed) {
-                $('#formDelete').attr('action','<?= base_url('admin/payment/delete/') ?>' + id)
+                $('#formDelete').attr('action','<?= base_url('admin/user/delete/') ?>' + id)
 				$('#formDelete').submit();
 				}
 			})

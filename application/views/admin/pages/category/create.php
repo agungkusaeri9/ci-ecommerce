@@ -6,7 +6,7 @@
                     <h6>Tambah Kategori</h6>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url('admin/category/store') ?>" method="post">
+                    <form action="<?= base_url('admin/category/store') ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="icon">Ikon</label>
                             <input type="file" name="icon" class="form-control" id="icon">

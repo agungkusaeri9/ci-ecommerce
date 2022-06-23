@@ -46,6 +46,26 @@ class Category extends CI_Controller{
 			// update data
 			$data = $this->input->post();
 			$id = $this->input->post('id');
+			$icon = $_FILES['icon'];
+			$category = $this->category->find(array('id' => $id))->row();
+			if($icon)
+			{
+				$config['upload_path']          = './uploads/category/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 10000;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+				$this->load->library('upload', $config);
+				if ($this->upload->do_upload('icon')) {
+					unlink("uploads/category/".$category->icon);
+					$uploaded_data = $this->upload->data();
+					$data['icon'] = $uploaded_data['file_name'];
+				}
+			}else{
+				$data['icon'] = $category->icon;
+			}
+
 			$action = $this->category->update($id,$data);
 			if($action)
 			{
@@ -57,6 +77,7 @@ class Category extends CI_Controller{
 			}
 			
 		}else{
+			$data = $this->input->post();
 			$this->form_validation->set_rules('name', 'Nama', 'required');
 			if($this->form_validation->run() == false)
 			{
@@ -64,8 +85,26 @@ class Category extends CI_Controller{
 				redirect('admin/category');
 			}
 
+			$icon = $_FILES['icon'];
+			if($icon)
+			{
+				$config['upload_path']          = './uploads/category/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 10000;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+				$this->load->library('upload', $config);
+				if ($this->upload->do_upload('icon')) {
+					$uploaded_data = $this->upload->data();
+					$data['icon'] = $uploaded_data['file_name'];
+				}
+			}else{
+				$data['icon'] = NULL;
+			}
+
 			// create data
-			$data = $this->input->post();
+			
             $action = $this->category->create($data);
 			if($action)
 			{
@@ -101,6 +140,12 @@ class Category extends CI_Controller{
 			$this->session->set_flashdata('error','Kategori gagal di hapus.');
 			redirect('admin/category');
 		}
+		$category = $this->category->find(array('id' => $id))->row();
+		if($category->icon)
+		{
+			unlink("uploads/category/".$category->icon);
+		}
+
 		$this->category->delete($id);
 		$this->session->set_flashdata('success','Kategori berhasil dihapus.');
 		redirect('admin/category');

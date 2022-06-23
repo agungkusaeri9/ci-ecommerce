@@ -13,8 +13,8 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama</th>
                                 <th>Icon</th>
+                                <th>Nama</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -25,8 +25,14 @@
                             <?php foreach($categories as $category) : ?>
                             <tr>
                                 <td style="width:10px;" class="text-center"><?= $i++ ?></td>
+                                <td>
+									<?php if($category->icon) : ?>
+									 <img src="<?= base_url('uploads/category/') . $category->icon ?>" alt="" class="img-fluid" style="max-height:80px;max-width:80px">
+									<?php else : ?>
+										<span class="font-italic">Tidak Ada</span>
+									<?php endif; ?>
+								</td>
                                 <td><?= $category->name ?></td>
-                                <td><?= $category->icon ?></td>
                                 <td>
 									<a href="<?= base_url('admin/category/edit/') . $category->id ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Edit</a>
 									<form action="" method="post" id="formDelete" class="d-inline">

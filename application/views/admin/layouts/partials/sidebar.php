@@ -49,7 +49,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="" class="nav-link">
+					<a href="<?= base_url('admin/user') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-users"></i>
 						<p>
 							User
