@@ -28,3 +28,4 @@
   <!-- jQuery -->
 <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
 <script src="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="<?= base_url('assets/plugins/summernote/summernote.min.css') ?>">
