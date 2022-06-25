@@ -15,20 +15,20 @@ class Product extends CI_Controller{
     }
     public function index()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Produk';
 		$data['content'] = 'admin/pages/product/index';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Produk';
+		$data['menu'] = 'Produk';
+		$data['submenu'] = 'Data';
         $data['products'] = $this->product->get()->result();
         $this->load->view('admin/layouts/app',$data);
     }
 
     public function create()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Tambah Produk';
 		$data['content'] = 'admin/pages/product/create';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Category/Create';
+		$data['menu'] = 'Produk';
+		$data['submenu'] = 'Tambah';
 		$data['categories'] = $this->category->get()->result();
         $this->load->view('admin/layouts/app',$data);
     }
@@ -136,10 +136,10 @@ class Product extends CI_Controller{
 			$this->session->set_flashdata('error','Produk tidak ditemukan.');
 			redirect('admin/product');
 		}
-        $data['title'] = 'Master';
+        $data['title'] = 'Detail Produk';
 		$data['content'] = 'admin/pages/product/show';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'product/Show';
+		$data['menu'] = 'Produk';
+		$data['submenu'] = 'Detail';
 		$data['product'] = $product;
         $this->load->view('admin/layouts/app',$data);
 	}
@@ -152,10 +152,10 @@ class Product extends CI_Controller{
 			$this->session->set_flashdata('error','Produk tidak ditemukan.');
 			redirect('admin/product');
 		}
-        $data['title'] = 'Master';
+        $data['title'] = 'Edit Produk';
 		$data['content'] = 'admin/pages/product/edit';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'product/Edit';
+		$data['menu'] = 'Produk';
+		$data['submenu'] = 'Edit';
 		$data['product'] = $product;
 		$data['categories'] = $this->category->get()->result();
         $this->load->view('admin/layouts/app',$data);

@@ -17,10 +17,10 @@ class Transaction extends CI_Controller{
 
 	public function index()
 	{
-		$data['title'] = 'Master';
+		$data['title'] = 'Transaksi';
 		$data['content'] = 'admin/pages/transaction/index';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Transaction';
+		$data['menu'] = 'Transaksi';
+		$data['submenu'] = 'Data';
         $data['transactions'] = $this->transaction->get()->result();
         $this->load->view('admin/layouts/app',$data);
 	}
@@ -33,10 +33,10 @@ class Transaction extends CI_Controller{
 			redirect('admin/transaction');
 		}
 		$data['transaction'] = $this->transaction->find(array('id' => $id))->row();
-		$data['title'] = 'Master';
+		$data['title'] = 'Detail Transaksi';
 		$data['content'] = 'admin/pages/transaction/show';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Transactio/Show';
+		$data['menu'] = 'Transaksi';
+		$data['submenu'] = 'Detail';
 		$data['details'] = $this->transaction->detail(array('transaction_id' => $id))->result();
         $this->load->view('admin/layouts/app',$data);
 	}
@@ -49,10 +49,10 @@ class Transaction extends CI_Controller{
 			redirect('admin/transaction');
 		}
 		$data['transaction'] = $this->transaction->find(array('id' => $id))->row();
-		$data['title'] = 'Master';
+		$data['title'] = 'Edit Transaksi';
 		$data['content'] = 'admin/pages/transaction/edit';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Transactio/Edit';
+		$data['menu'] = 'Transaksi';
+		$data['submenu'] = 'Edit';
 		$data['couriers'] = $this->courier->get()->result();
 		$data['payments'] = $this->payment->get()->result();
         $this->load->view('admin/layouts/app',$data);

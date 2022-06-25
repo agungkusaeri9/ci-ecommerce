@@ -13,10 +13,10 @@ class Message extends CI_Controller{
     }
     public function index()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Pesan Masuk';
 		$data['content'] = 'admin/pages/message/index';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Message';
+		$data['menu'] = 'Pesan Masuk';
+		$data['submenu'] = 'Data';
         $data['messages'] = $this->message->get()->result();
         $this->load->view('admin/layouts/app',$data);
     }

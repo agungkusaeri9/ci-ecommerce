@@ -39,4 +39,9 @@ class M_transaction extends CI_Model{
 		$this->db->from('transaction_details td');
         return $this->db->get();
 	}
+
+	public function count()
+	{
+		return $this->db->get($this->table)->num_rows();
+	}
 }

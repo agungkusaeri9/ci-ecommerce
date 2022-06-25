@@ -14,20 +14,20 @@ class Category extends CI_Controller{
     }
     public function index()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Kategori';
 		$data['content'] = 'admin/pages/category/index';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Kategori';
+		$data['menu'] = 'Kategori';
+		$data['submenu'] = 'Data';
         $data['categories'] = $this->category->get()->result();
         $this->load->view('admin/layouts/app',$data);
     }
 
     public function create()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Tambah Kategori';
 		$data['content'] = 'admin/pages/category/create';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Category/Create';
+		$data['menu'] = 'Kategori';
+		$data['submenu'] = 'Tambah';
         $this->load->view('admin/layouts/app',$data);
     }
 
@@ -125,10 +125,10 @@ class Category extends CI_Controller{
 			$this->session->set_flashdata('error','Kategori tidak ditemukan.');
 			redirect('admin/category');
 		}
-        $data['title'] = 'Master';
+        $data['title'] = 'Edit Kategori';
 		$data['content'] = 'admin/pages/category/edit';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Category/Edit';
+		$data['menu'] = 'Kategori';
+		$data['submenu'] = 'Edit';
 		$data['category'] = $category;
         $this->load->view('admin/layouts/app',$data);
     }

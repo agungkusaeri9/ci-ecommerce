@@ -13,20 +13,20 @@ class Payment extends CI_Controller{
     }
     public function index()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Metode Pembayaran';
 		$data['content'] = 'admin/pages/payment/index';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Payment';
+		$data['menu'] = 'Metode Pembayaran';
+		$data['submenu'] = 'Data';
         $data['payments'] = $this->payment->get()->result();
         $this->load->view('admin/layouts/app',$data);
     }
 
     public function create()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Tambah Metode Pembayaran';
 		$data['content'] = 'admin/pages/payment/create';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Payment/Create';
+		$data['menu'] = 'Metode Pembayaran';
+		$data['submenu'] = 'Tambah';
         $this->load->view('admin/layouts/app',$data);
     }
 
@@ -86,10 +86,10 @@ class Payment extends CI_Controller{
 			$this->session->set_flashdata('error','Metode Pembayaran tidak ditemukan.');
 			redirect('admin/payment');
 		}
-        $data['title'] = 'Master';
+        $data['title'] = 'Edit Metode Pembayaran';
 		$data['content'] = 'admin/pages/payment/edit';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Payment/Edit';
+		$data['menu'] = 'Metode Pembayaran';
+		$data['submenu'] = 'Edit';
 		$data['payment'] = $payment;
         $this->load->view('admin/layouts/app',$data);
     }

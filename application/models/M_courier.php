@@ -36,4 +36,9 @@ class M_courier extends CI_Model{
 		$this->db->delete($this->table);
 	}
 
+	public function count()
+	{
+		return $this->db->get($this->table)->num_rows();
+	}
+
 }

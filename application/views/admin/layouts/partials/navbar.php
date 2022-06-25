@@ -6,7 +6,7 @@
 		</li>
 	</ul>
 
-	<!-- Right navbar links -->
+	<!-- Right navbar links
 	<ul class="navbar-nav ml-auto">
 		<li class="nav-item dropdown">
 			<a class="nav-link" data-toggle="dropdown" href="#">
@@ -34,5 +34,5 @@
 				<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
 			</div>
 		</li>
-	</ul>
+	</ul> -->
 </nav>

@@ -14,20 +14,20 @@ class Courier extends CI_Controller{
     }
     public function index()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Kurir';
 		$data['content'] = 'admin/pages/courier/index';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Courier';
+		$data['menu'] = 'Kurir';
+		$data['submenu'] = 'Data';
         $data['couriers'] = $this->courier->get()->result();
         $this->load->view('admin/layouts/app',$data);
     }
 
     public function create()
     {
-        $data['title'] = 'Master';
+        $data['title'] = 'Kurir';
 		$data['content'] = 'admin/pages/courier/create';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Courier/Create';
+		$data['menu'] = 'Kurir';
+		$data['submenu'] = 'Tambah';
         $this->load->view('admin/layouts/app',$data);
     }
 
@@ -92,10 +92,10 @@ class Courier extends CI_Controller{
 			$this->session->set_flashdata('error','Kurir tidak ditemukan.');
 			redirect('admin/courier');
 		}
-        $data['title'] = 'Master';
+        $data['title'] = 'Kurir';
 		$data['content'] = 'admin/pages/courier/edit';
-		$data['menu'] = 'Master';
-		$data['submenu'] = 'Courier/Edit';
+		$data['menu'] = 'Kurir';
+		$data['submenu'] = 'Edit';
 		$data['courier'] = $courier;
         $this->load->view('admin/layouts/app',$data);
     }

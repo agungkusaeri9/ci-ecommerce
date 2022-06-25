@@ -90,45 +90,7 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-header">Laporan</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i class="nav-icon far fa-file"></i>
-						<p>
-							Laporan
-							<i class="fas fa-angle-left right"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Transaksi</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Produk</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>User</p>
-							</a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav-header">Setting</li>
-				<li class="nav-item">
-					<a href="" class="nav-link">
-						<i class="nav-icon fas fa-fw fa-cog"></i>
-						<p>
-							Pengaturan Web
-						</p>
-					</a>
-				</li>
+				<li class="nav-header">Pengaturan</li>
 				<li class="nav-item mb-5">
 					<a href="<?= base_url('auth/logout') ?>" class="nav-link">
 						<i class="nav-icon fas fa-fw fa-sign-out-alt"></i>
