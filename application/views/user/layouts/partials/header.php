@@ -15,7 +15,7 @@
                         <a href="" class="btn btn-link text-decoration-none text-dark">Home</a>
                     </li>
 					<li class="list-inline-item mr-0">
-                        <a href="" class="btn btn-link text-decoration-none text-dark">Produk</a>
+                        <a href="<?= base_url('product') ?>" class="btn btn-link text-decoration-none text-dark">Produk</a>
                     </li>
                     <li class="list-inline-item mr-0">
                         <a href="" class="btn btn-link text-decoration-none text-dark">Kontak</a>
@@ -43,11 +43,19 @@
                 <div class="col-lg-2 text-right col-md-3 align-self-center">
                     <ul class="nav-right">
                         <li class="cart-icon">
-                            <a href="">Akun Saya</a>
-                            <a href="">
-                                <i class="icon_bag_alt"></i>
-                                <span>0</span>
-                            </a> &nbsp;
+                            <?php if($this->session->userdata('id')) : ?>
+							<a href=""><?= $this->session->userdata('name') ?></a>
+							<a href="">
+								<i class="icon_bag_alt"></i>
+								<span>0</span>
+							</a> &nbsp;
+							<?php else: ?>
+							<a href="">Akun Saya</a>
+							<a href="">
+								<i class="icon_bag_alt"></i>
+								<span>0</span>
+							</a> &nbsp;
+							<?php endif; ?>
                         </li>
                     </ul>
                 </div>
