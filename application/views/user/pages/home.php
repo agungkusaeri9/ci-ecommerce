@@ -60,7 +60,7 @@
                                         <input type="hidden" name="price" value="{{ <?= $best->price ?> }}">
                                     </form>
                                 </li>
-                                <li class="quick-view"><a href="">+ Detail</a></li>
+                                <li class="quick-view"><a href="<?= base_url('product/show/') . $best->slug ?>">+ Detail</a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
@@ -89,7 +89,7 @@
 				<div class="d-flex justify-content-between">
 					<h2 class="section-title text-left">Mungkin Anda Suka</h2>
 					<div>
-						<a href="" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+						<a href="<?= base_url('product') ?>" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
 					</div>
 				</div>
             </div>
@@ -109,7 +109,7 @@
                                         <input type="hidden" name="price" value="<?= $latest->price ?>">
                                     </form>
                                 </li>
-                                <li class="quick-view"><a href="">+ Detail</a></li>
+                                <li class="quick-view"><a href="<?= base_url('product/show/') . $best->slug ?>">+ Detail</a></li>
                             </ul>
                         </div>
                         <div class="pi-text">

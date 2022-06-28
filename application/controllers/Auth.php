@@ -46,7 +46,12 @@ class Auth extends CI_Controller{
 					'role_id' => $cekEmail->role_id
 				);
 				$this->session->set_userdata($session);
-				redirect('admin/dashboard');
+                if($cekEmail->role_id == 1)
+                {
+                    redirect('admin/dashboard');
+                }else{
+                    redirect('/');
+                }
 			}else{
 				$this->session->set_flashdata('error', 'Email yang anda masukan salah');
             	redirect('auth');

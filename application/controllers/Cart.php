@@ -7,9 +7,21 @@ class Cart extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->model('M_product','product');
+		$this->load->model('M_payment','payment');
+		$this->load->model('M_courier','courier');
 		$this->load->model('M_cart','cart');
 		auth();
 	}
+
+	public function index()
+    {
+        $data['title'] = 'Keranjang';
+		$data['content'] = 'user/pages/cart/index';
+		$data['carts'] = $this->cart->get($this->session->userdata('id'))->result();
+		$data['payments'] = $this->payment->get()->result();
+		$data['couriers'] = $this->courier->get()->result();
+        $this->load->view('user/layouts/app',$data);
+    }
 
 	public function add()
 	{
@@ -51,11 +63,23 @@ class Cart extends CI_Controller{
 		if($action)
 		{
 			$this->session->set_flashdata('success','Produk berhasil ditambahkan ke keranjang');
-			redirect('product/show/' . $product->slug);
+			redirect('cart');
 		}else{
-			$this->session->set_flashdata('error','Produ gagal ditambahkan ke keranjang');
-			redirect('product/show/' . $product->slug);
+			$this->session->set_flashdata('error','Produk gagal ditambahkan ke keranjang');
+			redirect('cart');
 		}
+	}
+
+	public function delete($id)
+	{
+		if(!$id)
+		{
+			redirect('cart');
+		}
+
+		$this->cart->delete($id);
+		$this->session->set_flashdata('success','Produk berhasil dihapus dari keranjang');
+		redirect('cart');
 	}
 
 }

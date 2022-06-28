@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a href="">
+                        <a href="<?= base_url() ?>">
                             <h4 style="font-family: 'Righteous', cursive;">Toko Elektronik</h4>
                         </a>
                     </div>
@@ -45,13 +45,13 @@
                         <li class="cart-icon">
                             <?php if($this->session->userdata('id')) : ?>
 							<a href=""><?= $this->session->userdata('name') ?></a>
-							<a href="">
+							<a href="<?= base_url('cart') ?>">
 								<i class="icon_bag_alt"></i>
 								<span>0</span>
 							</a> &nbsp;
 							<?php else: ?>
 							<a href="">Akun Saya</a>
-							<a href="">
+							<a href="<?= base_url('cart') ?>">
 								<i class="icon_bag_alt"></i>
 								<span>0</span>
 							</a> &nbsp;

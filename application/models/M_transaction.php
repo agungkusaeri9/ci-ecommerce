@@ -12,6 +12,34 @@ class M_transaction extends CI_Model{
         return $this->db->get();
     }
 
+
+	public function getByUser($user_id)
+    {
+		$this->db->select('tr.*');
+		$this->db->where('tr.user_id',$user_id);
+		$this->db->order_by('id','DESC');
+		$this->db->from('transactions tr');
+        return $this->db->get();
+    }
+
+	public function create($data,$carts)
+	{
+		$this->db->insert('transactions',$data);
+		$insert_id = $this->db->insert_id();
+		if($insert_id)
+		{
+			foreach($carts as $cart){
+				$this->db->insert('transaction_details',array(
+					'product_id' => $cart->product_id,
+					'amount' => $cart->amount,
+					'transaction_id' => $insert_id,
+					'notes' => $cart->notes
+				));
+			}
+		}
+		return $insert_id;
+	}
+
 	public function delete($id)
 	{
 		$this->db->where('id',$id);
