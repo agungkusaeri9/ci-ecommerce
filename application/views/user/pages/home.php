@@ -7,7 +7,7 @@
                     <div class="col-lg-5">
                         <span><?= $banner->category_name ?></span>
                         <h1><?= $banner->name ?></h1>
-                        <a href="{{ route('product.show', $banner->slug) }}" class="primary-btn">Shop Now</a>
+                        <a href="<?= base_url('product/show/') . $banner->slug ?>" class="primary-btn">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -58,6 +58,27 @@
     </div>
 </section>
 
+<section class="mb-5">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h6 class="text-center mb-3 section-title">Kategori</h6>
+            </div>
+        </div>
+        <div class="row text-center">
+           <?php foreach($categories as $category) : ?>
+			<div class="col-3 col-lg-2 col-md-2">
+                <a href="<?= base_url('product/category/') . $category->slug ?>">
+                    <div class="category-item mb-2">
+                        <img src="<?= base_url('uploads/category/') . $category->icon ?>" alt="<?= $category->name ?>" id="category-img">
+                        <h5 class="text-uppercase mt-2 category-title"><?= $category->name ?></h5>
+                    </div>
+                </a>
+            </div>
+		   <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
 <!-- product latest -->
 <section class="mb-5">
@@ -86,16 +107,16 @@
                                         <input type="hidden" name="price" value="<?= $latest->price ?>">
                                     </form>
                                 </li>
-                                <li class="quick-view"><a href="<?= base_url('product/show/') . $best->slug ?>">+ Detail</a></li>
+                                <li class="quick-view"><a href="<?= base_url('product/show/') . $latest->slug ?>">+ Detail</a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name"><?= $best->category_name ?></div>
+                            <div class="catagory-name"><?= $latest->category_name ?></div>
                             <a href="#">
-                                <h5><?= $best->name ?></h5>
+                                <h5><?= $latest->name ?></h5>
                             </a>
                             <div class="product-price">
-                            Rp. <?= number_format($best->price) ?>
+                            Rp. <?= number_format($latest->price) ?>
                             </div>
                         </div>
                     </div>

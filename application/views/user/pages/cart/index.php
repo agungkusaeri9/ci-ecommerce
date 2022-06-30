@@ -53,6 +53,11 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
+							<?php if(empty($carts)) : ?>
+							 <tr>
+								<td colspan="7" class="text-center">Keranjang Kosong!</td>
+							 </tr>
+							<?php endif; ?>
                         </tbody>
                     </table>
                 </div>

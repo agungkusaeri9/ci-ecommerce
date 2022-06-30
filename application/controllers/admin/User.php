@@ -41,7 +41,7 @@ class User extends CI_Controller{
 		$this->form_validation->set_rules('role_id', 'Role', 'required|numeric');
 		if($this->input->post('id'))
 		{
-			$user = $this->user->find(array('id' => $this->input->post('id')))->num_rows();
+			$user = $this->user->find(array('id' => $this->input->post('id')))->row();
 			if($this->form_validation->run() == false)
 			{
 				$this->session->set_flashdata('error','User gagal diupdate.');

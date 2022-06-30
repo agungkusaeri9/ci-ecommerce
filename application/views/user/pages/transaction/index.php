@@ -11,7 +11,7 @@
                         <table class="table table-borderless table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>UUID</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Jumlah</th>
@@ -23,7 +23,7 @@
                                 <?php foreach($transactions as $transaction) : ?>
                                     <tr>
                                         <td>
-                                            <a href="" class="uuid text-dark" ><?= $transaction->id ?></a>
+										<?= $transaction->uuid ?>
                                         </td>
                                         <td><?= $transaction->name ?></td>
                                         <td><?= $transaction->address ?></td>
@@ -40,10 +40,15 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" class="btn btn-sm btn-warning btnDetail" data-url="<?= base_url('transaction/show/') . $transaction->id ?>">Detail</a>
+                                            <a href="javascript:void(0)" class="btn btn-sm btn-warning btnDetail" data-url="<?= base_url('transaction/show/') . $transaction->uuid ?>">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
+								<?php if(empty($transactions)) : ?>
+								 <tr>
+									<td colspan="6" class="text-center">Tidak ada transaksi!</td>
+								 </tr>
+								<?php endif; ?>
                             </tbody>
                         </table>
                     </div>

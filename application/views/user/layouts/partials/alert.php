@@ -1,9 +1,22 @@
 <?php if($this->session->flashdata('success')) : ?>
- <div class="alert alert-success">
-	<strong>Sukses!</strong> <?= $this->session->flashdata('success') ?>
- </div>
+
+<script>
+	Swal.fire({
+		icon: 'success',
+		title: 'Sukses',
+		text:'<?= $this->session->flashdata('success') ?>',
+		showConfirmButton: true,
+		timer: 1500
+	})
+</script>
 <?php elseif($this->session->flashdata('error')) : ?>
-	<div class="alert alert-danger">
-	<strong>Gagal!</strong> <?= $this->session->flashdata('error') ?>
- </div>
+	<script>
+	Swal.fire({
+		icon: 'error',
+		title: 'Gagal',
+		text:'<?= $this->session->flashdata('error') ?>',
+		showConfirmButton: true,
+		timer: 1500
+	})
+</script>
 <?php endif; ?>

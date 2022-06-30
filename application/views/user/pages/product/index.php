@@ -35,10 +35,14 @@
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<div class="row mt-2 mb-4">
-			<div class="col-md-12">
-
+		<?php if (empty($products)) : ?>
+			<div class="row mt-2 mb-4">
+				<div class="col-md-12">
+					<div class="alert alert-danger text-center">
+						Produk <?=  '"' . $this->input->get('q') . '"' ?? '' ?> tidak ditemukan.
+					</div>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 	</div>
 </section>

@@ -19,10 +19,10 @@ class Transaction extends CI_Controller{
         $this->load->view('user/layouts/app',$data);
     }
 
-	public function show($id)
+	public function show($uuid)
 	{
-		$data['transaction'] = $this->transaction->find(array('trx.id' => $id))->row();
-		$data['details'] = $this->transaction->getDetail($id)->result();
+		$data['transaction'] = $this->transaction->find(array('trx.uuid' => $uuid))->row();
+		$data['details'] = $this->transaction->getDetail($data['transaction']->id)->result();
 		$this->load->view('user/pages/transaction/show',$data);
 	}
 

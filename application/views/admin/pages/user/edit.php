@@ -77,7 +77,7 @@
 							</div>
                         </div>
                         <div class="form-group">
-                            <button class="btn float-right btn-primary">Tambah</button>
+                            <button class="btn float-right btn-primary">Update</button>
                         </div>
                     </form>
                 </div>

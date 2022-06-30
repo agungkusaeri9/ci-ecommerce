@@ -13,6 +13,24 @@ class M_product extends CI_Model{
         return $this->db->get();
     }
 
+	public function getWhere($where)
+    {
+		$this->db->select('products.*,product_categories.name as category_name,product_categories.slug as category_slug');
+		$this->db->where($where);
+		$this->db->join('product_categories','product_categories.id=products.product_category');
+		$this->db->from($this->table);
+        return $this->db->get();
+    }
+
+	public function search($q)
+	{
+		$this->db->select('products.*,product_categories.name as category_name');
+		$this->db->like('products.name',$q);
+		$this->db->join('product_categories','product_categories.id=products.product_category');
+		$this->db->from($this->table);
+        return $this->db->get();
+	}
+
 	public function create($data)
 	{
 		$this->db->insert($this->table,$data);
@@ -71,8 +89,8 @@ class M_product extends CI_Model{
 	{
 		$this->db->select('products.*,product_categories.name as category_name');
 		$this->db->join('product_categories','product_categories.id=products.product_category');
-		$this->db->order_by('id','DESC');
 		$this->db->limit($limit);
+		$this->db->order_by('products.id','DESC');
 		$this->db->from($this->table);
         return $this->db->get();
 	}

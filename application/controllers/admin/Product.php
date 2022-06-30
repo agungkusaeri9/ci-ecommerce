@@ -100,11 +100,9 @@ class Product extends CI_Controller{
 
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('image')) {
+					// unlink("uploads/product/".$product->image);
 					$uploaded_data = $this->upload->data();
-					
 					$data['image'] = $uploaded_data['file_name'];
-				}else{
-					$this->session->set_flashdata('error','Gambar Produk gagal di tambahkan.');
 				}
 			}else{
 				$data['image'] = 'default-image.png';

@@ -17,6 +17,7 @@ class Home extends CI_Controller{
 		$data['banners'] = $this->product->getBanner(5)->result();
 		$data['best_products'] = $this->product->bestProducts(5)->result();
 		$data['latest_products'] = $this->product->latestProducts(12)->result();
+		$data['categories'] = $this->category->get()->result();
         $this->load->view('user/layouts/app',$data);
     }
 

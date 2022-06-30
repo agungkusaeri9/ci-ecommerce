@@ -93,6 +93,12 @@ class Auth extends CI_Controller{
         $password = $this->input->post('password');
         $password_confirmation = $this->input->post('password_confirmation');
 
+		if(strlen($password) < 5)
+		{
+			$this->session->set_flashdata('error', 'Password minimal 5 karakter.');
+            redirect('auth/register');
+		}
+
         if($password !== $password_confirmation)
         {
             $this->session->set_flashdata('error', 'Password dan Konfirmasi Password tidak sama.');

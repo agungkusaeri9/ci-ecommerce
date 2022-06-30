@@ -33,7 +33,7 @@ class Transaction extends CI_Controller{
 			$this->session->set_flashdata('error','Transaction gagal di update.');
 			redirect('admin/transaction');
 		}
-		$data['transaction'] = $this->transaction->find(array('id' => $id))->row();
+		$data['transaction'] = $this->transaction->find(array('trx.id' => $id))->row();
 		$data['title'] = 'Detail Transaksi';
 		$data['content'] = 'admin/pages/transaction/show';
 		$data['menu'] = 'Transaksi';
@@ -49,7 +49,7 @@ class Transaction extends CI_Controller{
 			$this->session->set_flashdata('error','Transaction gagal di update.');
 			redirect('admin/transaction');
 		}
-		$data['transaction'] = $this->transaction->find(array('id' => $id))->row();
+		$data['transaction'] = $this->transaction->find(array('trx.id' => $id))->row();
 		$data['title'] = 'Edit Transaksi';
 		$data['content'] = 'admin/pages/transaction/edit';
 		$data['menu'] = 'Transaksi';
@@ -86,5 +86,11 @@ class Transaction extends CI_Controller{
 		$this->transaction->delete($id);
 		$this->session->set_flashdata('success','Transaction berhasil di hapus.');
 		redirect('admin/transaction');
+	}
+
+	public function print()
+	{
+		$data['transactions'] = $this->transaction->get()->result();
+		$this->load->view('admin/pages/transaction/print',$data);
 	}
 }

@@ -38,12 +38,6 @@ class Courier extends CI_Controller{
         $this->form_validation->set_rules('name', 'Nama', 'required');
 		if($this->input->post('id'))
 		{
-			$courier = $this->courier->find(array('code' => $this->input->post('code')))->num_rows();
-			if($courier > 0)
-			{
-				$this->session->set_flashdata('error','Kurir sudah ada.');
-				redirect('admin/courier');
-			};
 			if($this->form_validation->run() == false)
 			{
 				$this->session->set_flashdata('error','Kurir gagal diupdate.');

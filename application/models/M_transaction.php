@@ -9,6 +9,7 @@ class M_transaction extends CI_Model{
     {
 		$this->db->select('tr.*');
 		$this->db->from('transactions tr');
+		$this->db->order_by('tr.id','DESC');
         return $this->db->get();
     }
 
@@ -83,5 +84,11 @@ class M_transaction extends CI_Model{
 	public function count()
 	{
 		return $this->db->get($this->table)->num_rows();
+	}
+
+	public function latest()
+	{
+		$this->db->order_by('id','DESC');
+		return $this->db->get($this->table);
 	}
 }

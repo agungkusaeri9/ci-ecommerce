@@ -26,10 +26,8 @@ class Account extends CI_Controller{
 		if($avatar)
 		{
 			$config['upload_path']          = './uploads/user/';
-			$config['allowed_types']        = 'gif|jpg|png';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg|svg';
 			$config['max_size']             = 10000;
-			$config['max_width']            = 1024;
-			$config['max_height']           = 768;
 
 			$this->load->library('upload', $config);
 			if ($this->upload->do_upload('avatar')) {

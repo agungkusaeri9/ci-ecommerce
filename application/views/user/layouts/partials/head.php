@@ -26,4 +26,6 @@
 <link rel="stylesheet" href="<?= base_url('') ?>assets/user/css/slicknav.min.css" type="text/css" />
 <link rel="stylesheet" href="<?= base_url('') ?>assets/user/css/style.css" type="text/css" />
 <link rel="stylesheet" href="<?= base_url('') ?>assets/user/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.css">
 <script src="<?= base_url() ?>assets/user/js/jquery-3.3.1.min.js"></script>
+<script src="<?= base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>

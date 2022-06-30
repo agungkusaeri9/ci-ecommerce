@@ -2,7 +2,7 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<th>UUID</th>
-			<td><?= $transaction->id ?></td>
+			<td><?= $transaction->uuid ?></td>
 		</tr>
 		<tr>
 			<th>Nama</th>

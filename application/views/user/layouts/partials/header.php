@@ -18,10 +18,10 @@
                         <a href="<?= base_url('product') ?>" class="btn btn-link text-decoration-none text-dark">Produk</a>
                     </li>
                     <li class="list-inline-item mr-0">
-                        <a href="" class="btn btn-link text-decoration-none text-dark">Kontak</a>
+                        <a href="<?= base_url('contact') ?>" class="btn btn-link text-decoration-none text-dark">Kontak</a>
                     </li>
                     <li class="list-inline-item mr-0">
-                        <a href="" class="btn btn-link text-decoration-none text-dark">Tentang</a>
+                        <a href="<?= base_url('about') ?>" class="btn btn-link text-decoration-none text-dark">Tentang</a>
                     </li>
                 </ul>
             </div>
@@ -38,14 +38,16 @@
                     </div>
                 </div>
 				<div class="col-md-8 align-self-center">
-					<input type="text" class="form-control" placeholder="Cari Produk Kesukaan Anda...">
+					<form action="<?= base_url('product/search') ?>" method="get">
+						<input type="text" class="form-control" placeholder="Cari Produk Kesukaan Anda..." name="q" value="<?= $this->input->get('q') ?? '' ?>">
+					</form>
 				</div>
                 <div class="col-lg-2 text-right col-md-3 align-self-center">
                     <ul class="nav-right">
                         <li class="cart-icon">
                             <?php if($this->session->userdata('id')) : ?>
-							<a href="<?= base_url('account') ?>"><?= $this->session->userdata('name');
-                            $count = $this->cart->count($this->session->userdata('id'))->num_rows();
+							<a href="<?= base_url('account') ?>"><?= $this->auth->user()->name ?>
+                            <?php $count = $this->cart->count($this->session->userdata('id'))->num_rows();
                             ?></a>
 							<a href="<?= base_url('cart') ?>">
 								<i class="icon_bag_alt"></i>

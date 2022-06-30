@@ -52,10 +52,8 @@ class Category extends CI_Controller{
 			if($icon)
 			{
 				$config['upload_path']          = './uploads/category/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|svg';
                 $config['max_size']             = 10000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
 
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('icon')) {
@@ -66,6 +64,10 @@ class Category extends CI_Controller{
 			}else{
 				$data['icon'] = $category->icon;
 			}
+
+			$pname = trim(strtolower($this->input->post('name')));
+			$out = explode(" ",$pname);
+			$data['slug'] = implode("-",$out);
 
 			$action = $this->category->update($id,$data);
 			if($action)
@@ -90,10 +92,8 @@ class Category extends CI_Controller{
 			if($icon)
 			{
 				$config['upload_path']          = './uploads/category/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|svg';
                 $config['max_size']             = 10000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
 
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('icon')) {
@@ -105,7 +105,9 @@ class Category extends CI_Controller{
 			}
 
 			// create data
-			
+			$pname = trim(strtolower($this->input->post('name')));
+			$out = explode(" ",$pname);
+			$data['slug'] = implode("-",$out);
             $action = $this->category->create($data);
 			if($action)
 			{
