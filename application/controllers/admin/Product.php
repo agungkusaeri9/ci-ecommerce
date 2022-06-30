@@ -107,7 +107,7 @@ class Product extends CI_Controller{
 					$this->session->set_flashdata('error','Gambar Produk gagal di tambahkan.');
 				}
 			}else{
-				$data['image'] = NULL;
+				$data['image'] = 'default-image.png';
 			}
 
 			$pname = trim(strtolower($this->input->post('name')));
