@@ -10,7 +10,7 @@ class M_auth extends CI_Model{
 	{
 		$this->db->where($where);
 		$this->db->from($this->table);
-		return $this->db->get()->row();
+		return $this->db->get();
 	}
 
 	public function user()

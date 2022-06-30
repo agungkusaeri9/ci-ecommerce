@@ -81,5 +81,6 @@ class Cart extends CI_Controller{
 		$this->session->set_flashdata('success','Produk berhasil dihapus dari keranjang');
 		redirect('cart');
 	}
+	
 
 }

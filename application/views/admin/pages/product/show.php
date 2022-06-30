@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body">
                         <?php if($product->image) : ?>
-							<img src="<?= base_url('uploads/product/' . $product->image) ?>" alt="{{ $product->name }}" data-id="{{ $product->id }}" data-title="Gambar Produk" data-src="<?= base_url('uploads/product/' . $product->image) ?>" class="img-thumbnail img-fluid mb-1 foto">
+							<img src="<?= base_url('uploads/product/' . $product->image) ?>" alt="<?= $product->name ?>" data-id="{{ $product->id }}" data-title="Gambar Produk" data-src="<?= base_url('uploads/product/' . $product->image) ?>" class="img-thumbnail img-fluid mb-1 foto">
 						<?php else: ?>
 						<div class="alert alert-danger text-center">
 							<strong>Foto Tidak Ditemukan!</strong>

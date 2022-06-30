@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller{
 		$this->load->model('M_transaction','transaction');
 		$this->load->model('M_courier','courier');
 		auth();
+		isAdmin();
     }
 
 	public function index()

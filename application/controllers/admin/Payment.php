@@ -10,6 +10,7 @@ class Payment extends CI_Controller{
         $this->load->model('M_payment','payment');
         $this->load->library('form_validation');
 		auth();
+		isAdmin();
     }
     public function index()
     {

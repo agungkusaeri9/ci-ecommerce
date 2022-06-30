@@ -12,7 +12,7 @@
             <div class="float-right mt-1">
                 <ul class="list-inline">
                     <li class="list-inline-item mr-0">
-                        <a href="" class="btn btn-link text-decoration-none text-dark">Home</a>
+                        <a href="<?= base_url('/') ?>" class="btn btn-link text-decoration-none text-dark">Home</a>
                     </li>
 					<li class="list-inline-item mr-0">
                         <a href="<?= base_url('product') ?>" class="btn btn-link text-decoration-none text-dark">Produk</a>
@@ -44,13 +44,15 @@
                     <ul class="nav-right">
                         <li class="cart-icon">
                             <?php if($this->session->userdata('id')) : ?>
-							<a href=""><?= $this->session->userdata('name') ?></a>
+							<a href="<?= base_url('account') ?>"><?= $this->session->userdata('name');
+                            $count = $this->cart->count($this->session->userdata('id'))->num_rows();
+                            ?></a>
 							<a href="<?= base_url('cart') ?>">
 								<i class="icon_bag_alt"></i>
-								<span>0</span>
+								<span><?= $count ?></span>
 							</a> &nbsp;
 							<?php else: ?>
-							<a href="">Akun Saya</a>
+							<a href="<?= base_url('account') ?>">Akun Saya</a>
 							<a href="<?= base_url('cart') ?>">
 								<i class="icon_bag_alt"></i>
 								<span>0</span>

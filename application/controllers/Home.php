@@ -12,12 +12,11 @@ class Home extends CI_Controller{
 
 	public function index()
     {
-        $data['title'] = 'Kategori';
+        $data['title'] = 'Selamat datang di toko kami - Segala macam barang elektroin kini tersedia dengan harga yang murah tapi kualitas bagus';
 		$data['content'] = 'user/pages/home';
 		$data['banners'] = $this->product->getBanner(5)->result();
 		$data['best_products'] = $this->product->bestProducts(5)->result();
 		$data['latest_products'] = $this->product->latestProducts(12)->result();
-		$data['categories'] = $this->category->get()->result();
         $this->load->view('user/layouts/app',$data);
     }
 

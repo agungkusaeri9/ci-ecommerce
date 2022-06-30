@@ -12,8 +12,8 @@
                     </ul>
                     <div class="footer-social">
                         <a href="https://wa.me/+6281919956872?text=Halo Toko" target="_blank"><i class="fa fa-whatsapp"></i></a>
-                        <a href="" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="footer-widget">
                     <h5>Informasi</h5>
                     <ul>
-                        <li><a href="">Produk</a></li>
+                        <li><a href="<?= base_url('product') ?>">Produk</a></li>
                         <li><a href="">Kontak</a></li>
                         <li><a href="">Tentang</a></li>
                     </ul>
@@ -31,9 +31,9 @@
                 <div class="footer-widget">
                     <h5>Akun Saya</h5>
                     <ul>
-                        <li><a href="">Profil</a></li>
-                        <li><a href="">Keranjang</a></li>
-                        <li><a href="">Transaksi</a></li>
+                        <li><a href="<?= base_url('account') ?>">Profil</a></li>
+                        <li><a href="<?= base_url('cart') ?>">Keranjang</a></li>
+                        <li><a href="<?= base_url('transaction') ?>">Transaksi</a></li>
                     </ul>
                 </div>
             </div>

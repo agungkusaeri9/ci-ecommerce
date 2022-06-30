@@ -1,5 +1,5 @@
 <div class="list-group mb-2">
-    <a href="" class="list-group-item list-group-item-action" aria-current="true">
+    <a href="<?= base_url('account') ?>" class="list-group-item list-group-item-action" aria-current="true">
       Akun Saya
     </a>
     <a href="<?= base_url('transaction') ?>" class="list-group-item list-group-item-action">
@@ -9,7 +9,7 @@
     document.getElementById('logout-form').submit();">
       Logout
     </a>
-    <form method="post" action="" class="d-none" id="logout-form">
+    <form method="post" action="<?= base_url('auth/logout') ?>" class="d-none" id="logout-form">
       @csrf
     </form>
 </div>

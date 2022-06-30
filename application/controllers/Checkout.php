@@ -22,14 +22,17 @@ class Checkout extends CI_Controller{
             'email' => $this->input->post('email'),
             'address' => $this->input->post('address'),
             'transaction_total' => $transaction_total,
-            'transaction_status' => 'SUCCESS',
+            'transaction_status' => 'PENDING',
             'courier_id' => $this->input->post('courier_id'),
             'payment_id' => $this->input->post('payment_id'),
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'created_at' => date('Y-m-d')
         );
         $action = $this->transaction->create($data,$carts);
         if($action)
         {
+            // delete cart
+            $this->cart->deleteAll($user_id);
             $this->session->set_flashdata('success','Transaksi berhasil dilakukan. Silahkan lakukan pembayaran di bawah ini.');
             redirect('transaction');
         }

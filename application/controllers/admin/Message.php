@@ -10,6 +10,7 @@ class Message extends CI_Controller{
         $this->load->model('M_message','message');
 		$this->load->library('session');
 		auth();
+		isAdmin();
     }
     public function index()
     {

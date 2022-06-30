@@ -15,7 +15,6 @@
 								<li class="w-icon active" onclick="addToCart()">
 									<a href="javascript:void(0)"><i class="icon_bag_alt"></i></a>
 									<form action="{{ route('cart.store') }}" method="post" class="d-none" id="form-add-to-cart">
-										@csrf
 										<input type="hidden" name="product_id" value="<?= $product->id ?>">
 										<input type="hidden" name="price" value="<?= $product->price ?>">
 									</form>

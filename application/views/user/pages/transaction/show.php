@@ -27,14 +27,14 @@
 							<th>Harga Awal</th>
 							<th>Harga Akhir</th>
 						</tr>
-						@foreach ($transaction->details as $detail)
-						<tr>
-							<td>{{ $detail->product->name }}</td>
-							<td>{{ $detail->amount }}</td>
-							<td>{{ number_format($detail->product->price) }}</td>
-							<td>{{ number_format($detail->product->price * $detail->amount) }}</td>
-						</tr>
-						@endforeach
+						<?php foreach($details as $detail) : ?>
+							<tr>
+								<td><?= $detail->name ?></td>
+								<td><?= $detail->amount ?></td>
+								<td><?= number_format($detail->price) ?></td>
+								<td><?= number_format($detail->price*$detail->amount) ?></td>
+							</tr>
+						<?php endforeach ?>
 					</table>
 				</div>
 			</td>
@@ -42,23 +42,15 @@
 		<tr>
 			<th>Pembayaran</th>
 			<td>
-				@if (!$transaction->payment)
-				-
-				@else
-				{{ $transaction->payment->name . ' - ' . $transaction->payment->number . ' ('.$transaction->payment->desc .')' }}
-				@endif
+				<?= $transaction->pay_name . ' - ' . $transaction->pay_number  . ' (' . $transaction->pay_desc . ')' ?>
 			</td>
 		</tr>
 		<tr>
 			<th>Kurir</th>
-			<td>{{ $transaction->courier }}</td>
+			<td><?= $transaction->courier_name ?></td>
 		</tr>
 		<tr>
-			<th>Sub Total</th>
-			<td>Rp. {{ number_format($price_total) }}</td>
-		</tr>
-		<tr>
-			<th>Total</th>
+			<th>Total Bayar</th>
 			<td>Rp. <?= number_format($transaction->transaction_total) ?></td>
 		</tr>
 		</tr>

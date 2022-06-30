@@ -11,3 +11,13 @@ function auth()
 	}
 
 }
+
+function isAdmin()
+{
+	$ci = get_instance();
+	$ci->load->model('M_auth','auth');
+	if($ci->session->userdata('role_id') == 2)
+	{
+		redirect('/');
+	}
+}

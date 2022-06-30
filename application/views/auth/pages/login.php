@@ -1,12 +1,8 @@
 <div class="login-box">
 		<div class="login-logo">
-			<a href=""><b>E-Commerce</b></a>
+			<a href="<?= base_url('/') ?>"><b>Penjualan Barang Elektronik</b></a>
 		</div>
-        <?php if($this->session->flashdata('error')) : ?>
-            <div class="alert alert-danger">
-                <?= $this->session->flashdata('error') ?>
-            </div>
-        <?php endif;?>
+        <?php $this->load->view('user/layouts/partials/alert') ?>
 		<!-- /.login-logo -->
 		<div class="card">
 			<div class="card-body login-card-body">

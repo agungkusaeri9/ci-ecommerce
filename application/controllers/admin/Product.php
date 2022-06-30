@@ -12,6 +12,7 @@ class Product extends CI_Controller{
         $this->load->library('form_validation');
 		$this->load->library('session');
 		auth();
+		isAdmin();
     }
     public function index()
     {
@@ -56,14 +57,12 @@ class Product extends CI_Controller{
 			if($image)
 			{
 				$config['upload_path']          = './uploads/product/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|svg';
                 $config['max_size']             = 10000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
 
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('image')) {
-					unlink("uploads/product/".$product->image);
+					// unlink("uploads/product/".$product->image);
 					$uploaded_data = $this->upload->data();
 					$data['image'] = $uploaded_data['file_name'];
 				}
@@ -96,14 +95,13 @@ class Product extends CI_Controller{
 			if($image)
 			{
 				$config['upload_path']          = './uploads/product/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|svg';
                 $config['max_size']             = 10000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
 
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('image')) {
 					$uploaded_data = $this->upload->data();
+					
 					$data['image'] = $uploaded_data['file_name'];
 				}else{
 					$this->session->set_flashdata('error','Gambar Produk gagal di tambahkan.');

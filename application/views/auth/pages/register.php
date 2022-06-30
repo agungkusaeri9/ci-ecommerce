@@ -1,13 +1,13 @@
 <div class="register-box">
   <div class="register-logo">
-    <a href=""><b>E-Commerce</b></a>
+    <a href="<?= base_url('/') ?>"><b>Penjualan Barang Elektronik</b></a>
   </div>
-
+  <?php $this->load->view('user/layouts/partials/alert') ?>
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 
-      <form action="" method="post">
+      <form action="<?= base_url('auth/process_register') ?>" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Full name" name="name">
           <div class="input-group-append">

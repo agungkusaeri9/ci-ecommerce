@@ -12,6 +12,14 @@ class M_transaction extends CI_Model{
         return $this->db->get();
     }
 
+	public function getDetail($transaction_id)
+	{
+		$this->db->select('td.*,prod.*');
+		$this->db->where('transaction_id',$transaction_id);
+		$this->db->join('products prod','prod.id=td.product_id');
+		$this->db->from('transaction_details td');
+		return $this->db->get();
+	}
 
 	public function getByUser($user_id)
     {
@@ -49,7 +57,11 @@ class M_transaction extends CI_Model{
 	public function find($arr)
 	{
 		$this->db->where($arr);
-		return $this->db->get($this->table);
+		$this->db->select('trx.*,pay.name as pay_name,pay.number as pay_number,pay.desc as pay_desc,couriers.name as courier_name');
+		$this->db->join('payments pay','pay.id=trx.payment_id');
+		$this->db->join('couriers','couriers.id=trx.courier_id');
+		$this->db->from('transactions trx');
+		return $this->db->get();
 	}
 
 	public function update($arr,$data)

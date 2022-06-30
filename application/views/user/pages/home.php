@@ -15,30 +15,8 @@
 		<?php endforeach; ?>
     </div>
 </section>
-<section class="mb-5">
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <h6 class="mb-3 section-title text-left">Kategori</h6>
-            </div>
-        </div>
-        <div class="row text-center">
-          <?php foreach($categories as $category) : ?>
-			<div class="col-3 col-lg-2 col-md-2">
-                <a href="">
-                    <div class="category-item mb-2">
-                        <img src="<?= base_url('uploads/category/') . $category->icon ?>" alt="<?= $category->name ?>" id="category-img">
-                        <h5 class="text-uppercase mt-2 category-title"><?= $category->name ?></h5>
-                    </div>
-                </a>
-            </div>
-		  <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
 <!-- terlaris -->
-<section class="mb-5">
+<section class="mb-5 mt-3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -54,8 +32,8 @@
                             <img src="<?= base_url('uploads/product/') . $best->image ?>" alt="" />
                             <ul>
                                 <li class="w-icon active">
-                                    <a href="javascript:void(0)"><i class="icon_bag_alt"></i></a>
-                                    <form action="" method="post" class="d-none" id="form-add-to-cart">
+                                    <a href="javascript:void(0)" onclick="$('#form-add-to-cart').submit()"><i class="icon_bag_alt"></i></a>
+                                    <form action="<?= base_url('cart/add') ?>" method="post" class="d-none" id="form-add-to-cart">
                                         <input type="hidden" name="product_id" value="<?= $best->id ?>">
                                         <input type="hidden" name="price" value="{{ <?= $best->price ?> }}">
                                     </form>
@@ -101,10 +79,9 @@
                         <div class="pi-pic">
                             <img src="<?= base_url('uploads/product/') . $latest->image ?>" alt="" />
                             <ul>
-                                <li class="w-icon active" onclick="addToCart()">
-                                    <a href="javascript:void(0)"><i class="icon_bag_alt"></i></a>
-                                    <form action="" method="post" class="d-none" id="form-add-to-cart">
-                                        @csrf
+                                <li class="w-icon active">
+                                    <a href="javascript:void(0)" onclick="$('#form-add-to-cart').submit()"><i class="icon_bag_alt"></i></a>
+                                    <form action="<?= base_url('cart/add') ?>" method="post" class="d-none" id="form-add-to-cart">
                                         <input type="hidden" name="product_id" value="<?= $latest->id ?>">
                                         <input type="hidden" name="price" value="<?= $latest->price ?>">
                                     </form>

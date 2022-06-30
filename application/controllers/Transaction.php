@@ -21,7 +21,8 @@ class Transaction extends CI_Controller{
 
 	public function show($id)
 	{
-		$data['transaction'] = $this->transaction->find(array('id' => $id))->row();
+		$data['transaction'] = $this->transaction->find(array('trx.id' => $id))->row();
+		$data['details'] = $this->transaction->getDetail($id)->result();
 		$this->load->view('user/pages/transaction/show',$data);
 	}
 

@@ -13,6 +13,7 @@ class Transaction extends CI_Controller{
         $this->load->library('form_validation');
 		$this->load->library('session');
 		auth();
+		isAdmin();
     }
 
 	public function index()

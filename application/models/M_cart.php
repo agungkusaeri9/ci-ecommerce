@@ -29,9 +29,24 @@ class M_cart extends CI_Model{
 		$this->db->delete();
 	}
 
+	public function deleteAll($user_id)
+	{
+		$this->db->where('carts.user_id',$user_id);
+		$this->db->from($this->table);
+		$this->db->delete();
+	}
+
 	public function sum($column,$user_id)
 	{
 		$this->db->select_sum($column);
+		$this->db->where('user_id',$user_id);
+		$this->db->from($this->table);
+		return $this->db->get();
+	}
+
+	public function count($user_id)
+	{
+		$this->db->select('*');
 		$this->db->where('user_id',$user_id);
 		$this->db->from($this->table);
 		return $this->db->get();
